@@ -1,9 +1,12 @@
 import {
   Plugins,
-  FilesystemDirectory,
   WebPlugin,
   registerWebPlugin,
 } from '@capacitor/core';
+
+import {Filesystem,Directory } from '@capacitor/Filesystem';
+
+
 import writeFileViaBridge from './fallback';
 
 declare module "@capacitor/core" {
@@ -52,7 +55,7 @@ registerWebPlugin(BlobWriter);
 
 export interface BlobWriteOptions {
   path: string;
-  directory?: FilesystemDirectory;
+  directory?: Directory;
   data: Blob;
   recursive?: boolean;
   fallback?: boolean | FallbackCallback;
